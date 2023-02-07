@@ -59,8 +59,8 @@ It is recommended that authentication be enabled for connecting to JMX services 
 
 Prometheus should be able to connect to a compliant agent and read the data. For Java applications which uses JMX Mbeans to publish metrics, [JMX Exporter](https://github.com/prometheus/jmx_exporter) is the agent of choice. Perform the following steps to enable thye JMX Exporter Agent
 
- 1. Download the JMX Exporter [JAR](https://github.com/prometheus/jmx_exporter/releases/tag/parent-0.17.2) file from GitHub
- 2. Copy the application specific configuration YAML file that can parse the metrics from MBeans. For all standard applications and software this is [published](https://github.com/prometheus/jmx_exporter/tree/main/example_configs) and can be used as-is.
+ 1. Download the JMX Exporter from this repository and copy to Kafka and Zookeeper Server. For latest version of the JAR file refer the publisher's GitHub [Repository](https://github.com/prometheus/jmx_exporter/releases/tag/parent-0.17.2)
+ 2. Copy the application specific configuration YAML files present in **JMX_Exporter** that can parse the metrics from MBeans. For other standard applications and software this is [published](https://github.com/prometheus/jmx_exporter/tree/main/example_configs) and can be used as-is.
  3. Add the following property to the Zookeeper and Kafka Startup environment file
 	 >  -javaagent:/opt/confluent/prometheus/jmx_prometheus_javaagent-0.16.1.jar=7071:/opt/confluent/prometheus/kafka-metric.yml
 	 NOTE: The port 7071 can be changed as needed
@@ -99,6 +99,7 @@ Now that the Prometheus is collecting the data, Grafana must be configured to co
 
 ## Create Grafana Dashboards
 
-Grafana dashboards provides an intuitive and cleaner way to consume the resource usage data. The dashboards are essentially JSON files with pre-defined variables, annotations and various panels to publish statistics and charts. Until now, the configurations developed by confluent is used as-is. While the dashboard JSON provided by Confluent does the job, it has **Data Source** and **Prometheus Jobs** hard coded. The JSON files are now modified to prompt for the required **Data Source** while importing the JSON file. Refer Grafana manual for steps to import JSON files as dashboards.
+Grafana dashboards provides an intuitive and cleaner way to consume the resource usage data. The dashboards are essentially JSON files with pre-defined variables, annotations and various panels to publish statistics and charts. Until now, the configurations developed by confluent is used as-is. While the dashboard JSON provided by Confluent does the job, it has **Data Source** and **Prometheus Jobs** hard coded. The JSON files are now modified to prompt for the required **Data Source** while importing the JSON file. use the JSON files provided in **Grafana** folder in this repository.
+Refer Grafana manual for steps to import JSON files as dashboards.
 
 NOTE: The Prometheus Job names are still hard-coded to not break the panel. if the naming convention given here is followed and the JSON and YAML files are used as-is, the dashboard will start publishing data immediately.
