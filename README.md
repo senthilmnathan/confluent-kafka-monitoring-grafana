@@ -1,5 +1,5 @@
 # Monitoring Confluent Open Source Kafka using JMX and Grafana
-This details the steps to be taken to enable monitoring of Kafka and Zookeeper instances in Grafana via Prometheus Database. This is a reuse of the dashboards [published](https://github.com/confluentinc/jmx-monitoring-stacks.git) by Confluent with some enhancements
+This details the steps to enable monitoring of Kafka and Zookeeper instances in Grafana via Prometheus Database. This is a reuse of the dashboards [published](https://github.com/confluentinc/jmx-monitoring-stacks.git) by Confluent with some enhancements
 
 ## Pre-Requisites
 Complete the following pre-requisites.
