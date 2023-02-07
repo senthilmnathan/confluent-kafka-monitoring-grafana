@@ -69,14 +69,13 @@ Prometheus should be able to connect to a compliant agent and read the data. For
 
 In order to publish the metrics as charts and graphs, the data should first be stored in a time series database. In this case, it is Prometheus. The **prometheus.yml** file controls what the prometheus instance collects and stores. Unlike other prometheus agents, data from JMX Exporter is pulled rather than pushed. prometheus.yml should have the scrape jobs defined that will collect data from Kafka and Zookeeper instances.
 In the prometheus.yml file, add the following lines with proper syntax and restart Prometheus.
-
 ```
 scrape_configs:
   - job_name: "prometheus"
     static_configs:
       - targets: ["eu-jenkint-a001.iconcr.com:9090"]
 
-  - job_name: "kafka"
+  - job_name: "kafka"  #Job Name
     static_configs:
       - targets:
           - "<node1>:7071"
@@ -85,14 +84,14 @@ scrape_configs:
         labels:
           env: "test"
 
-  - job_name: "zookeeper"
+  - job_name: "zookeeper" #Job Name
     static_configs:
       - targets:
           - "<node1>:7171"
           - "<node2>:7171"
           - "<node3>:7171"
         labels:
-          env: "test"
+          env: "test" #Used to filter the right instance in Grafana Dashboard
 ```
 ## Create Grafana Data Sources
 Now that the Prometheus is collecting the data, Grafana must be configured to connect to the Prometheus instance and read the data. This Prometheus instance is configured as a **Data-Source** in Grafana. Refer Grafana manual for steps to create the data source.
