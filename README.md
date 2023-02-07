@@ -70,7 +70,7 @@ Prometheus should be able to connect to a compliant agent and read the data. For
 In order to publish the metrics as charts and graphs, the data should first be stored in a time series database. In this case, it is Prometheus. The **prometheus.yml** file controls what the prometheus instance collects and stores. Unlike other prometheus agents, data from JMX Exporter is pulled rather than pushed. prometheus.yml should have the scrape jobs defined that will collect data from Kafka and Zookeeper instances.
 In the prometheus.yml file, add the following lines with proper syntax and restart Prometheus.
 
-```mermaid
+```
 scrape_configs:
   - job_name: "prometheus"
     static_configs:
