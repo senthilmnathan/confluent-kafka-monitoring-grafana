@@ -45,14 +45,14 @@ G ---> E
 ## Enabling JMX On Kafka and Zookeeper
 
 Add the following properties to the Zookeeper and Kafka Startup environment file.
-
->  -Dcom.sun.management.jmxremote 
->  -Dcom.sun.management.jmxremote.authenticate=true 
->  -Dcom.sun.management.jmxremote.ssl=false 
->  -Dcom.sun.management.jmxremote.port=9686 
->  -Dcom.sun.management.jmxremote.access.file=/opt/confluent/confluent-6.0.1/bin/jmx.access 
->  -Dcom.sun.management.jmxremote.password.file=/opt/confluent/confluent-6.0.1/bin/jmx.password
-
+```
+-Dcom.sun.management.jmxremote 
+-Dcom.sun.management.jmxremote.authenticate=true 
+-Dcom.sun.management.jmxremote.ssl=false 
+-Dcom.sun.management.jmxremote.port=9686 
+-Dcom.sun.management.jmxremote.access.file=/opt/confluent/confluent-6.0.1/bin/jmx.access 
+-Dcom.sun.management.jmxremote.password.file=/opt/confluent/confluent-6.0.1/bin/jmx.password
+```
 It is recommended that authentication be enabled for connecting to JMX services and the role for said user be restricted to basic read access. SSL can be enabled for remote JMX connection as required.
 
 ## Enabling JMX Exporter for Kafka and Zookeeper
