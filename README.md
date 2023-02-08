@@ -53,7 +53,7 @@ Add the following properties to the Zookeeper and Kafka Startup environment file
 -Dcom.sun.management.jmxremote.access.file=/opt/confluent/confluent-6.0.1/bin/jmx.access 
 -Dcom.sun.management.jmxremote.password.file=/opt/confluent/confluent-6.0.1/bin/jmx.password
 ```
-It is recommended that authentication be enabled for connecting to JMX services and the role for said user be restricted to basic read access. SSL can be enabled for remote JMX connection as required.
+It is recommended that authentication be enabled for connecting to JMX services and the role for said user be restricted to basic read access. JMX Exporter does not support HTTPS.
 
 ## Enabling JMX Exporter for Kafka and Zookeeper
 
